@@ -1,0 +1,418 @@
+{
+  "preparedOn": "2026-10-16",
+  "sourceEnvironment": "Ascend910B / CANN9.0.0",
+  "historicalObservationsOnly": true,
+  "records": [
+    {
+      "record": "EXP-014",
+      "sourceVersion": "EXP-014",
+      "judgeId": 708802,
+      "status": "Pass",
+      "valid": true,
+      "averageUs": 14.47916666666667,
+      "caseResults": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "timeUs": 4.86,
+          "precisionRatio": 1
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "timeUs": 5.43,
+          "precisionRatio": 1
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "timeUs": 8.55,
+          "precisionRatio": 1
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "timeUs": 8.58,
+          "precisionRatio": 1
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "timeUs": 28.93,
+          "precisionRatio": 1
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "timeUs": 28.96,
+          "precisionRatio": 1
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "timeUs": 5.06,
+          "precisionRatio": 1
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "timeUs": 5.98,
+          "precisionRatio": 1
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "timeUs": 8.62,
+          "precisionRatio": 1
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "timeUs": 8.72,
+          "precisionRatio": 1
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "timeUs": 30.03,
+          "precisionRatio": 1
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "timeUs": 30.03,
+          "precisionRatio": 1
+        }
+      ]
+    },
+    {
+      "record": "EXP-015",
+      "sourceVersion": "EXP-015",
+      "judgeId": 748848,
+      "status": "Pass",
+      "valid": true,
+      "averageUs": 14.384166666666667,
+      "caseResults": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "timeUs": 4.76,
+          "precisionRatio": 1
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "timeUs": 5.34,
+          "precisionRatio": 1
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "timeUs": 8.39,
+          "precisionRatio": 1
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "timeUs": 8.44,
+          "precisionRatio": 1
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "timeUs": 28.82,
+          "precisionRatio": 1
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "timeUs": 28.83,
+          "precisionRatio": 1
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "timeUs": 4.86,
+          "precisionRatio": 1
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "timeUs": 5.98,
+          "precisionRatio": 1
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "timeUs": 8.6,
+          "precisionRatio": 1
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "timeUs": 8.51,
+          "precisionRatio": 1
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "timeUs": 30.03,
+          "precisionRatio": 1
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "timeUs": 30.05,
+          "precisionRatio": 1
+        }
+      ]
+    },
+    {
+      "record": "EXP-016",
+      "sourceVersion": "EXP-016",
+      "judgeId": 759655,
+      "status": "Pass",
+      "valid": true,
+      "averageUs": 13.613333333333335,
+      "caseResults": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "timeUs": 4.79,
+          "precisionRatio": 1
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "timeUs": 5.2,
+          "precisionRatio": 1
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "timeUs": 7.86,
+          "precisionRatio": 1
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "timeUs": 7.9,
+          "precisionRatio": 1
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "timeUs": 27.75,
+          "precisionRatio": 1
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "timeUs": 27.69,
+          "precisionRatio": 1
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "timeUs": 4.86,
+          "precisionRatio": 1
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "timeUs": 5.85,
+          "precisionRatio": 1
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "timeUs": 8.02,
+          "precisionRatio": 1
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "timeUs": 8.03,
+          "precisionRatio": 1
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "timeUs": 27.61,
+          "precisionRatio": 1
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "timeUs": 27.8,
+          "precisionRatio": 1
+        }
+      ]
+    },
+    {
+      "record": "EXP-017",
+      "sourceVersion": "EXP-017",
+      "judgeId": 760514,
+      "status": "Pass",
+      "valid": true,
+      "averageUs": 14.468333333333334,
+      "caseResults": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "timeUs": 5.04,
+          "precisionRatio": 1
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "timeUs": 5.48,
+          "precisionRatio": 1
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "timeUs": 8.31,
+          "precisionRatio": 1
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "timeUs": 8.3,
+          "precisionRatio": 1
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "timeUs": 30.97,
+          "precisionRatio": 1
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "timeUs": 30.95,
+          "precisionRatio": 1
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "timeUs": 5.1,
+          "precisionRatio": 1
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "timeUs": 6.22,
+          "precisionRatio": 1
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "timeUs": 8.49,
+          "precisionRatio": 1
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "timeUs": 8.42,
+          "precisionRatio": 1
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "timeUs": 27.98,
+          "precisionRatio": 1
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "timeUs": 28.36,
+          "precisionRatio": 1
+        }
+      ]
+    },
+    {
+      "record": "EXP-017-RESTORE-016",
+      "sourceVersion": "EXP-016",
+      "judgeId": 760625,
+      "status": "Pass",
+      "valid": true,
+      "averageUs": 13.500833333333333,
+      "caseResults": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "timeUs": 4.74,
+          "precisionRatio": 1
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "timeUs": 5.16,
+          "precisionRatio": 1
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "timeUs": 7.86,
+          "precisionRatio": 1
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "timeUs": 7.84,
+          "precisionRatio": 1
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "timeUs": 27.32,
+          "precisionRatio": 1
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "timeUs": 27.28,
+          "precisionRatio": 1
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "timeUs": 4.86,
+          "precisionRatio": 1
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "timeUs": 5.62,
+          "precisionRatio": 1
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "timeUs": 7.94,
+          "precisionRatio": 1
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "timeUs": 8.01,
+          "precisionRatio": 1
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "timeUs": 27.68,
+          "precisionRatio": 1
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "timeUs": 27.7,
+          "precisionRatio": 1
+        }
+      ]
+    }
+  ],
+  "note": "Case ordinals preserve historical testcase identity; exact shape/dtype metadata not obtained. Same-source rerun is not an algorithm improvement."
+}

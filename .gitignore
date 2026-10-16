@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+tests/testdata/
+build/
+out/
+.env
+.env.*
+*.pem
+*.key
+*.vsix
+environment-backup/
+iteration-payload*.json
+iteration-submission-raw.json
+browser-*.json
