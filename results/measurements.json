@@ -1,5 +1,5 @@
 {
-  "preparedOn": "2026-10-16",
+  "preparedOn": "2026-10-17",
   "sourceEnvironment": "Ascend910B / CANN9.0.0",
   "historicalObservationsOnly": true,
   "records": [
@@ -412,7 +412,316 @@
           "precisionRatio": 1
         }
       ]
+    },
+    {
+      "record": "EXP-018",
+      "sourceVersion": "EXP-018",
+      "judgeId": 877556,
+      "status": "Pass",
+      "valid": null,
+      "comparisonEligible": true,
+      "evidenceType": "JUDGE_UI",
+      "apiValid": null,
+      "apiPrecisionRatio": null,
+      "averageUs": 13.474166666666667,
+      "displayOnly": true,
+      "submissionTimeLocal": "2026-10-17 10:11:11",
+      "timezone": "Asia/Shanghai",
+      "testcaseIdentity": "UI ordinals only; testcase IDs, shape and dtype unknown; identity alignment across records is unverified",
+      "timingPrecision": "Times displayed to 0.01 microseconds; mean computed from displayed values",
+      "caseResults": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "timeUs": 4.71,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "timeUs": 5.14,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "timeUs": 7.84,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "timeUs": 7.85,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "timeUs": 27.24,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "timeUs": 27.21,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "timeUs": 4.86,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "timeUs": 5.52,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "timeUs": 7.95,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "timeUs": 8.02,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "timeUs": 27.65,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "timeUs": 27.7,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        }
+      ]
+    },
+    {
+      "record": "EXP-019",
+      "sourceVersion": "EXP-019",
+      "judgeId": 877809,
+      "status": "Pass",
+      "valid": null,
+      "comparisonEligible": true,
+      "evidenceType": "JUDGE_UI",
+      "apiValid": null,
+      "apiPrecisionRatio": null,
+      "averageUs": 13.845,
+      "displayOnly": true,
+      "submissionTimeLocal": "2026-10-17 10:25:40",
+      "timezone": "Asia/Shanghai",
+      "testcaseIdentity": "UI ordinals only; testcase IDs, shape and dtype unknown; identity alignment across records is unverified",
+      "timingPrecision": "Times displayed to 0.01 microseconds; mean computed from displayed values",
+      "caseResults": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "timeUs": 4.86,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "timeUs": 5.44,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "timeUs": 8.15,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "timeUs": 8.15,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "timeUs": 27.96,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "timeUs": 27.93,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "timeUs": 4.98,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "timeUs": 5.94,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "timeUs": 8.34,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "timeUs": 8.32,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "timeUs": 28.01,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "timeUs": 28.06,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        }
+      ]
+    },
+    {
+      "record": "EXP-019-RESTORE-016",
+      "sourceVersion": "EXP-016",
+      "judgeId": 878046,
+      "status": "Pass",
+      "valid": null,
+      "comparisonEligible": true,
+      "evidenceType": "JUDGE_UI",
+      "apiValid": null,
+      "apiPrecisionRatio": null,
+      "averageUs": 13.810833333333333,
+      "displayOnly": true,
+      "submissionTimeLocal": "2026-10-17 10:38:23",
+      "timezone": "Asia/Shanghai",
+      "testcaseIdentity": "UI ordinals only; testcase IDs, shape and dtype unknown; identity alignment across records is unverified",
+      "timingPrecision": "Times displayed to 0.01 microseconds; mean computed from displayed values",
+      "caseResults": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "timeUs": 4.86,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "timeUs": 5.46,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "timeUs": 8.16,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "timeUs": 8.3,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "timeUs": 27.5,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "timeUs": 27.48,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "timeUs": 5.06,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "timeUs": 5.96,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "timeUs": 8.42,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "timeUs": 8.39,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "timeUs": 28.1,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "timeUs": 28.04,
+          "outputErrorPercentDisplayed": 0,
+          "precisionRatio": null
+        }
+      ]
     }
   ],
-  "note": "Case ordinals preserve historical testcase identity; exact shape/dtype metadata not obtained. Same-source rerun is not an algorithm improvement."
+  "note": "Original five historical records remain unchanged. The three JUDGE_UI records contain displayed ordinals only, without testcase IDs or shape/dtype evidence; cross-record identity alignment is unverified. UI Pass/0.00% output error does not establish API valid or precision_ratio. Same-source reruns are not algorithm improvements; 18 -> 19 -> restored 16 was not a controlled A/B/A."
 }
