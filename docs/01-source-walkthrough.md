@@ -1,4 +1,4 @@
-> 这是2026-10-12以EXP-015讲解基础的导读，对应源码在[history/EXP-015](../history/EXP-015/)。推荐基线为[src/](../src/)中的EXP-016，TILE_N=704；手机阅读时以函数名定位，历史行号与本地快捷键仅作参考。
+> 这是2026-10-12以EXP-015讲解基础的历史导读，对应源码在[history/EXP-015](../history/EXP-015/)。当前[src/](../src/)为EXP-022，TILE_N=704，以best_observed推荐但稳定收益未证实；原016保存在[history/EXP-016](../history/EXP-016/)。手机阅读时以函数名定位，历史行号与本地快捷键仅作参考。
 
 # FireCandidateDecodeFusion 源码导读
 

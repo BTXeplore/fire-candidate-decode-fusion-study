@@ -1,4 +1,14 @@
-> 以下是EXP-016首次测量的历史学习说明。当时均值13.6133µs、46.65分；恢复同源码的复测13.5008µs、47.11分见[首页](../README.md)。本地.cmd和VS Code操作不是手机阅读的必要步骤。
+> 当前`src/`已是EXP-022，按`best_observed`推荐，稳定提速尚未证实。本篇保留EXP-016的历史学习说明，016源码请读[history/EXP-016](../history/EXP-016/)。当时首次均值13.6133µs、46.65分，历史同源复测13.5008µs、47.11分；这些不代表当前版本或实时排名。本地.cmd和VS Code操作不是手机阅读的必要步骤。
+
+## 先看当前022与本篇016的差异
+
+EXP-022保持016的TILE_N=704、UB分配、队列、分核和全部浮点数学；只改变索引初始化与调用位置。原016多次生成ramp、分段构造5count输出索引；022借现有6T的sigA/sigB一次承载完整5count，raw/pri使用同一ramp前缀，以一个builtCount缓存。完整首次构建的源码API调用35→9，不是编译指令数或速度承诺。
+
+022把EnsureScratch放在priors的EnQue后、DeQue前，并删除ComputeTile重复调用。真实Process每核首块count最大，后续不增，因此不会在batch计算中重新覆盖scratch，Duplicate初始化起点仍为0。输出索引公式与下文相同，score也仍是原来的两次Sigmoid再乘；未叠加020数学融合。
+
+022首次Judge均值13.3750µs，同源确认12.9400µs，均12/12 Pass；原016本轮前后均值13.7492/14.1508µs。漂移明显，当前仅选最佳观测源码，不能把差值全部算作优化收益。具体逐点结果与Gemini最后复审见[本轮记录](06-exp020-exp022-cross-review.md)。
+
+版本边界保持910B/CANN9.0.0；已有API更大count的新组合经过当前Judge编译和12点检查，不等于证明全部尾长或特殊值。master、950、未经取证的物理Bank/核数/微码说法不能补作本环境的事实。
 
 # EXP-016：先看这里
 
@@ -6,7 +16,7 @@
 
 公开榜单核对为第 13 名、46.65 分，时间为本次提交的 22:11:30，12 个时延与原始结果全部匹配。这是观察当时的名次，后续会变化。
 
-新版学习副本在 `src/`，旧版目录继续保留。这里只复制已评测源码，不修改原始实验，也不覆盖你的笔记。
+本篇016学习副本在[history/EXP-016](../history/EXP-016/)，当前022在[src/](../src/)。两者保留独立版本，避免把历史行号套到新版源码。
 
 ## 这次学什么
 
@@ -18,7 +28,7 @@ FP32 输出可以直接 Gather 到输出队列；outF32Buf 是 FP16 最后转换
 
 ## 阅读顺序
 
-1. 打开 `src/op_kernel/fire_candidate_decode_fusion.cpp`，先看第 8 行的 TILE_N。
+1. 打开[EXP-016 kernel](../history/EXP-016/op_kernel/fire_candidate_decode_fusion.cpp)，先看TILE_N。
 2. `Ctrl+G` 跳到 28 行，读 `Init`，找出被删除的两个临时缓冲和只给 FP16 分配的缓冲。
 3. 跳到 66 行，读 `EnsureScratch`，看整数视图如何使用 sigA/sigB。
 4. 跳到 206 行，读 `ComputeTile`。它的函数文本与 EXP-015 完全相同：算术和转换没改。
@@ -47,4 +57,4 @@ offset = 4 * (k*T+j)
 
 显式 UB：FP16 168960B，FP32 185856B；这不是完整编译资源报告。目标平台已编译且通过精度，仍没有真实流水 profiling 或重复 A/B。更大 tile 减少部分形状下的循环次数，但实际收益同时可能受 UB 地址、尾块和调度变化影响。
 
-完整实验说明、原始 JSON、逐点比较、平台源码哈希和榜单核对保存在 `src/`。受限模式保持原选择；源码阅读不需要启用自动执行或提交。
+公开精简测量在[results/measurements.json](../results/measurements.json)，文件身份在[SOURCE-MANIFEST.json](../SOURCE-MANIFEST.json)；原始评测响应和私人环境不收录。源码阅读不需要启用自动执行或提交。

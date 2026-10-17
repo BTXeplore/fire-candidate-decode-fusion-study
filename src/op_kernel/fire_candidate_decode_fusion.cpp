@@ -64,47 +64,29 @@ public:
     }
 
     __aicore__ inline void EnsureScratch(uint32_t count) {
-        // Index construction runs before sigmoid; reuse vector-only scratch.
-        LocalTensor<int32_t> rampI = sigBBuf.Get<int32_t>();
-        if (count > builtRaw) {
-            CreateVecIndex(rampI, (int32_t)0, count);
-            LocalTensor<int32_t> rawIdxI = idxBuf.Get<int32_t>();
-            Muls(rawIdxI, rampI, (int32_t)(4 * RAW_F), (int32_t)count);
-            builtRaw = count;
-        }
-        if (count > builtPri) {
-            CreateVecIndex(rampI, (int32_t)0, count);
-            LocalTensor<int32_t> idxI = idxBuf.Get<int32_t>();
-            LocalTensor<int32_t> priIdxI = idxI[TILE_N];
-            Muls(priIdxI, rampI, (int32_t)(4 * PRI_F), (int32_t)count);
-            builtPri = count;
+        if (count <= builtCount) {
+            return;
         }
         const uint32_t needOut = count * OUT_F;
-        if (needOut > builtOut) {
-            LocalTensor<int32_t> idxI = idxBuf.Get<int32_t>();
-            LocalTensor<int32_t> outIdxI = idxI[2 * TILE_N];
-            LocalTensor<int32_t> ramp = sigBBuf.Get<int32_t>();
-            LocalTensor<int32_t> oT = sigABuf.Get<int32_t>();
-            LocalTensor<int32_t> t1 = oT;
-            LocalTensor<int32_t> q5 = oT[TILE_N];
-            LocalTensor<int32_t> q2 = oT[2 * TILE_N];
-            for (uint32_t off = 0; off < needOut; off += TILE_N) {
-                const uint32_t cur = ((needOut - off) < TILE_N) ? (needOut - off) : TILE_N;
-                CreateVecIndex(ramp, (int32_t)off, cur);
-                Muls(t1, ramp, (int32_t)13108, (int32_t)cur);
-                ShiftRight(q5, t1, (int32_t)16, (int32_t)cur);
-                Muls(t1, ramp, (int32_t)(4 * TILE_N), (int32_t)cur);
-                Muls(q2, q5, (int32_t)(4 * (OUT_F * TILE_N - 1)), (int32_t)cur);
-                Sub(outIdxI[off], t1, q2, (int32_t)cur);
-            }
-            builtOut = needOut;
-        }
-        const uint32_t needOnes = count * RAW_F;
-        if (needOnes > builtOnes) {
-            LocalTensor<float> ones = onesBuf.Get<float>();
-            Duplicate(ones[builtOnes], (float)1.0, (int32_t)(needOnes - builtOnes));
-            builtOnes = needOnes;
-        }
+        LocalTensor<int32_t> ramp = sigBBuf.Get<int32_t>();
+        LocalTensor<int32_t> t1 = sigABuf.Get<int32_t>();
+        LocalTensor<int32_t> idx = idxBuf.Get<int32_t>();
+        LocalTensor<int32_t> rawIdx = idx;
+        LocalTensor<int32_t> priIdx = idx[TILE_N];
+        LocalTensor<int32_t> outIdx = idx[2 * TILE_N];
+        // One shared ramp; every instruction uses separate source/destination ranges.
+        CreateVecIndex(ramp, (int32_t)0, needOut);
+        Muls(rawIdx, ramp, (int32_t)(4 * RAW_F), (int32_t)count);
+        Muls(priIdx, ramp, (int32_t)(4 * PRI_F), (int32_t)count);
+        Muls(t1, ramp, (int32_t)13108, (int32_t)needOut);
+        ShiftRight(outIdx, t1, (int32_t)16, (int32_t)needOut);
+        Muls(t1, ramp, (int32_t)(4 * TILE_N), (int32_t)needOut);
+        Muls(ramp, outIdx, (int32_t)(4 * (OUT_F * TILE_N - 1)), (int32_t)needOut);
+        Sub(outIdx, t1, ramp, (int32_t)needOut);
+        LocalTensor<float> ones = onesBuf.Get<float>();
+        Duplicate(ones[builtCount * RAW_F], (float)1.0,
+                  (int32_t)((count - builtCount) * RAW_F));
+        builtCount = count;
     }
 
     __aicore__ inline void Process() {
@@ -129,7 +111,6 @@ public:
     }
 
     __aicore__ inline void LoadPriors(uint32_t n0, uint32_t count) {
-        EnsureScratch(count);
         const uint32_t n5 = count * PRI_F;
         LocalTensor<float> priLoc = inPriQue.AllocTensor<float>();
         {
@@ -143,6 +124,7 @@ public:
             DataCopyPad(priLoc, priorsGm[(uint64_t)n0 * PRI_F], p, pad);
         }
         inPriQue.EnQue(priLoc);
+        EnsureScratch(count);
         LocalTensor<float> priIn = inPriQue.DeQue<float>();
         LocalTensor<uint32_t> idxP = idxBuf.Get<uint32_t>();
         LocalTensor<uint32_t> priIdxP = idxP[TILE_N];
@@ -206,7 +188,6 @@ private:
     __aicore__ inline void ComputeTile(uint32_t b, uint32_t n0, uint32_t count) {
         const uint32_t n6 = count * RAW_F;
         const uint32_t n5 = count * PRI_F;
-        EnsureScratch(count);
         FlushOut();
         LocalTensor<DT_RAW_PRED> rawIn = inRawQue.DeQue<DT_RAW_PRED>();
 
@@ -299,10 +280,7 @@ private:
     uint32_t nTail = 0;
     uint32_t nBegin = 0;
     uint32_t myN = 0;
-    uint32_t builtRaw = 0;
-    uint32_t builtPri = 0;
-    uint32_t builtOut = 0;
-    uint32_t builtOnes = 0;
+    uint32_t builtCount = 0;
 };
 
 template <typename DT_RAW_PRED>
