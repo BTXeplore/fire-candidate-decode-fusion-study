@@ -510,5 +510,78 @@
       "source": "Original frozen Judge candidate",
       "gitBlobSha": "57d12eef858c61a8ee334f09ada9770acc3b965b"
     }
-  ]
+  ],
+  "annotatedCopies": [
+    {
+      "path": "annotated/EXP-022/CMakeLists.txt",
+      "sourcePath": "src/CMakeLists.txt",
+      "sourceVersion": "EXP-022",
+      "bytes": 939,
+      "sha256": "29075aba8ae1ceef85ec7c775a260fb9875b1dff7308aae636d9d6fc6b5e47e5",
+      "gitBlobSha": "c03655c7ba6bbdb6434d18ce6d77becbb82f59d3",
+      "addedCommentLines": 5,
+      "originalLinesExactAfterRemovingAddedComments": true
+    },
+    {
+      "path": "annotated/EXP-022/op_host/CMakeLists.txt",
+      "sourcePath": "src/op_host/CMakeLists.txt",
+      "sourceVersion": "EXP-022",
+      "bytes": 1074,
+      "sha256": "befc072f60bf59104b54445be7adec9d56cfd86c70eed42b216f7669dd8988e5",
+      "gitBlobSha": "606d1b1db7dbdabaa14092d555b8e860e79edf42",
+      "addedCommentLines": 5,
+      "originalLinesExactAfterRemovingAddedComments": true
+    },
+    {
+      "path": "annotated/EXP-022/op_host/fire_candidate_decode_fusion.cpp",
+      "sourcePath": "src/op_host/fire_candidate_decode_fusion.cpp",
+      "sourceVersion": "EXP-022",
+      "bytes": 6549,
+      "sha256": "8a3adad916c92b2f28ee58d62d8ce7e604ae1ce984eab0b9c1b3e45af50a3eb7",
+      "gitBlobSha": "a4f6259888811b2eb0cce75f365b3d2f87e5fec1",
+      "addedCommentLines": 17,
+      "originalLinesExactAfterRemovingAddedComments": true
+    },
+    {
+      "path": "annotated/EXP-022/op_kernel/CMakeLists.txt",
+      "sourcePath": "src/op_kernel/CMakeLists.txt",
+      "sourceVersion": "EXP-022",
+      "bytes": 863,
+      "sha256": "f1ebd25d7eb9264028a2d460cfdbdc13e87351dbb14e48cbc004b94ea2e3eae4",
+      "gitBlobSha": "fa266bd027adbe14bbfca0f9e9c06f55590b4bbb",
+      "addedCommentLines": 5,
+      "originalLinesExactAfterRemovingAddedComments": true
+    },
+    {
+      "path": "annotated/EXP-022/op_kernel/fire_candidate_decode_fusion_tiling.h",
+      "sourcePath": "src/op_kernel/fire_candidate_decode_fusion_tiling.h",
+      "sourceVersion": "EXP-022",
+      "bytes": 1452,
+      "sha256": "a267449a7cbfd94747df3ad79a7f1927082bc2699f9963ff3e46303be30dcbef",
+      "gitBlobSha": "a1a3a75752271c875939cf7a11c89c51cef26bde",
+      "addedCommentLines": 6,
+      "originalLinesExactAfterRemovingAddedComments": true
+    },
+    {
+      "path": "annotated/EXP-022/op_kernel/tiling_key_fire_candidate_decode_fusion.h",
+      "sourcePath": "src/op_kernel/tiling_key_fire_candidate_decode_fusion.h",
+      "sourceVersion": "EXP-022",
+      "bytes": 902,
+      "sha256": "aae69d7740396e5e1d6da3a92fff4da0b034b28b4bf3a0685a0418da16c37c38",
+      "gitBlobSha": "bba5ba3ed76cf75fed2f2fc45865be5c5b4ae622",
+      "addedCommentLines": 5,
+      "originalLinesExactAfterRemovingAddedComments": true
+    },
+    {
+      "path": "annotated/EXP-022/op_kernel/fire_candidate_decode_fusion.cpp",
+      "sourcePath": "src/op_kernel/fire_candidate_decode_fusion.cpp",
+      "sourceVersion": "EXP-022",
+      "bytes": 22658,
+      "sha256": "f08482674133a1797e6c9a8295efff542683c9100dcee775111fa79e38b38f92",
+      "gitBlobSha": "e320103b5e1bf94019c186f1cfc8f6230d8925df",
+      "addedCommentLines": 97,
+      "originalLinesExactAfterRemovingAddedComments": true
+    }
+  ],
+  "annotatedCopyVerification": "Remove only added whole-line comments prefixed with 学习｜ and normalize CRLF to LF: exact original source text. Annotated files have not been independently compiled or judged."
 }
