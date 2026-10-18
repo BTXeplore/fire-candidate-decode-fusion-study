@@ -1,5 +1,5 @@
 {
-  "preparedOn": "2026-10-17",
+  "preparedOn": "2026-10-18",
   "recommendedSourceVersion": "EXP-022",
   "recommendationKind": "best_observed",
   "recommendedMeasurementRecord": "EXP-022-CONFIRM",
@@ -508,6 +508,62 @@
       "sha256": "5168010BC4DA2F44A450980E1FBB04BBC727663230218A09C3D7C7B8D82A954D",
       "bytes": 356,
       "source": "Original frozen Judge candidate",
+      "gitBlobSha": "57d12eef858c61a8ee334f09ada9770acc3b965b"
+    },
+    {
+      "path": "history/EXP-023/CMakeLists.txt",
+      "sourceVersion": "EXP-023",
+      "sha256": "650F11FAB6711603BCFEB1AF60463DB47F060DBCB67DE2CDDD8398E5C0EBB3DF",
+      "bytes": 360,
+      "source": "Original frozen Judge candidate; not adopted",
+      "gitBlobSha": "377cf65dc369f7238c4a2a0eba8fe087a044a82d"
+    },
+    {
+      "path": "history/EXP-023/op_host/CMakeLists.txt",
+      "sourceVersion": "EXP-023",
+      "sha256": "02333C3A83A459059BB0A96DF1D3627E2F78F457D2A22D08E56E29439B22DDCF",
+      "bytes": 563,
+      "source": "Original frozen Judge candidate; not adopted",
+      "gitBlobSha": "ccb0f1ad758dba91b22676533311b8997743faea"
+    },
+    {
+      "path": "history/EXP-023/op_host/fire_candidate_decode_fusion.cpp",
+      "sourceVersion": "EXP-023",
+      "sha256": "55ADC475127670F922C7739D0462519AC72DF525313CAF344BA2F25FF0E616DD",
+      "bytes": 4582,
+      "source": "Original frozen Judge candidate; not adopted",
+      "gitBlobSha": "e0ac2ac8c2d4951ae69007e1a6f121a27b550df3"
+    },
+    {
+      "path": "history/EXP-023/op_kernel/CMakeLists.txt",
+      "sourceVersion": "EXP-023",
+      "sha256": "D05A8A3F067AF24667C096C672C869B35F1CC854A201449455F86817929A2B07",
+      "bytes": 307,
+      "source": "Original frozen Judge candidate; not adopted",
+      "gitBlobSha": "e0a8c945f54e911267db272d85bbf82dde9057ec"
+    },
+    {
+      "path": "history/EXP-023/op_kernel/fire_candidate_decode_fusion_tiling.h",
+      "sourceVersion": "EXP-023",
+      "sha256": "EDB8399567B082C84C8AEB95A10CAA4F565AEA93B3984F72CC31508678C733AA",
+      "bytes": 758,
+      "source": "Original frozen Judge candidate; not adopted",
+      "gitBlobSha": "3f3e60f66ca0071c3125c9cd1f0d5ff0e5bfc5cf"
+    },
+    {
+      "path": "history/EXP-023/op_kernel/fire_candidate_decode_fusion.cpp",
+      "sourceVersion": "EXP-023",
+      "sha256": "1A29FFDEE1190DD7685551DE10688CDD052399717D2947E3D3595C94E14A688A",
+      "bytes": 12401,
+      "source": "Original frozen Judge candidate; not adopted",
+      "gitBlobSha": "c84f75e48a9600e1e6292ea845be8175d07366be"
+    },
+    {
+      "path": "history/EXP-023/op_kernel/tiling_key_fire_candidate_decode_fusion.h",
+      "sourceVersion": "EXP-023",
+      "sha256": "5168010BC4DA2F44A450980E1FBB04BBC727663230218A09C3D7C7B8D82A954D",
+      "bytes": 356,
+      "source": "Original frozen Judge candidate; not adopted",
       "gitBlobSha": "57d12eef858c61a8ee334f09ada9770acc3b965b"
     }
   ],

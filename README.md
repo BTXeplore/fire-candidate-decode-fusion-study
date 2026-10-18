@@ -10,6 +10,14 @@ Ascend 910B / CANN 9.0.0上的候选框解码与置信度融合算子。这里�
 
 **想躺着学代码，可以直接打开[EXP-022 逐段中文注释版](annotated/EXP-022/README.md)。** 七份完整文件解释索引数学、分核、缓冲生命周期、队列、精度和尾块；原始已评测源码继续保存在 `src/`。去掉新增注释后与原码逐行一致，注释版未单独提测。
 
+## 2026-10-18：今晚的一版迭代与学习
+
+当前继续推荐EXP-022。新候选EXP-023字段间距由704改为712，12/12 Pass，均值12.8092µs；原22前/后控为13.0292/13.1383µs。23对前控仅5点快、7点慢，均值与几何指标给出不同取舍，暂不采用，平台已恢复原22。
+
+- [这段优化经历真正学到的七个主题](docs/07-operator-optimization-lessons.md)：融合、布局、生命周期、复用、流水、精度与测量。
+- [EXP-023完整逐点结果与未采用原因](docs/08-exp023-layout.md)。
+- [023候选源码](history/EXP-023/)：仅布局改动，不替换推荐源码。
+
 ## 从这三处开始
 
 1. [中文入门导读](docs/01-source-walkthrough.md)：输入、Sigmoid、解码、AoS/SoA和队列；以历史015解释基础。
@@ -31,10 +39,10 @@ Ascend 910B / CANN 9.0.0上的候选框解码与置信度融合算子。这里�
 |[history/EXP-019/](history/EXP-019/)|priors/raw搬入重排；无稳健收益暂不采用|
 |[history/EXP-020/](history/EXP-020/)|完整Tile合并score倒数；12/12 Pass，未推荐|
 |[history/EXP-022/](history/EXP-022/)|一次构造索引与首次搬运窗口；当前best_observed|
-|[results/measurements.json](results/measurements.json)|13条精简真实测量，保留原8条并追加本轮5条|
+|[results/measurements.json](results/measurements.json)|16条精简真实测量，包含三个2026-10-18记录|
 |[validation/](validation/)|Coverage / Correctness / Mock框架，区分CPU与NPU证据|
 |[tests/](tests/)|旧版CPU公式参考与测试脚本，保留学习用途|
-|[SOURCE-MANIFEST.json](SOURCE-MANIFEST.json)|63份源码来源、字节数、SHA256及Git blob SHA|
+|[SOURCE-MANIFEST.json](SOURCE-MANIFEST.json)|70份冻结源码来源、字节数、SHA256及Git blob SHA|
 
 未提交设备的EXP-021生命周期解耦草稿没有评测结论，不计入本轮两个实测版本。
 
