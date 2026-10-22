@@ -96,8 +96,14 @@ def compare_output(got, raw, priors):
     # NaN is never accepted. Inputs are finite, but output representability
     # is not bounded by the problem. Matching signed infinities are reported.
     ok &= ~np.isnan(g) & ~np.isnan(w)
-    finite_delta = delta[finite]
+    # 学习｜NaN 预填用来发现漏写，但诊断统计不能再产生 NaN/Inf；否则
+    # allow_nan=False 的报告保存会二次失败，反而丢失最需要保留的失败现场。
+    # maxAbsFinite 只描述双方均有限的元素；非有限候选另计数，绝不忽略其失败。
+    finite_pairs = finite & np.isfinite(g)
+    finite_delta = delta[finite_pairs]
     return {"passed": bool(ok.all()), "atol": tol, "rtol": tol,
             "mismatches": int((~ok).sum()),
-            "maxAbsFinite": float(finite_delta.max(initial=0)),
+            "maxAbsFinite": float(finite_delta.max()) if finite_delta.size else None,
+            "outputNonfinite": int((~np.isfinite(g)).sum()),
+            "nonfiniteActualAtFiniteReference": int((finite & ~np.isfinite(g)).sum()),
             "referenceNonfinite": int((~finite).sum())}

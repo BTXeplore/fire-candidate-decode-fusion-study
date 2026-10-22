@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-22",
+  "kind": "CPU_FRAMEWORK_VALIDATION",
+  "recommendedSourceVersion": "EXP-022",
+  "kernelSha256": "ae124f1d4ca127a3475cbca582fc60333e738b25f4285d66d96746f8d56e6885",
+  "frozenSourceFilesVerified": 77,
+  "annotatedCopiesVerified": 7,
+  "frameworkSelftests": {
+    "passed": 26,
+    "total": 26,
+    "deviceExecution": false
+  },
+  "reports": [
+    {
+      "artifactName": "cpu-full-report.json",
+      "caseCount": 612,
+      "passedCases": 612,
+      "mode": "CPU_REFERENCE_ONLY",
+      "sha256": "6fd489ebddec05a49fd6edc450526133f740b2ca5b4297e9dc2981707509b73c"
+    },
+    {
+      "artifactName": "cpu-smoke-report.json",
+      "caseCount": 6,
+      "passedCases": 6,
+      "mode": "CPU_REFERENCE_ONLY",
+      "sha256": "1fea04920fc6ab6fa9b99fb952ce00a7321abb3ce0b018959eb1740b451d21ab"
+    },
+    {
+      "artifactName": "cpu-boundary-c40-example.json",
+      "caseCount": 48,
+      "passedCases": 48,
+      "mode": "CPU_REFERENCE_ONLY",
+      "sha256": "30999435c75186944d40ed81ba47e1e95a9fdb691b031f7c8f28a8bb94105403"
+    }
+  ],
+  "boundaryCores40IsGeneratorExampleOnly": true,
+  "deviceKernelExecuted": false,
+  "npuTimingSamples": [],
+  "newJudgeSubmissions": 0,
+  "newKernelCandidateCreated": false,
+  "environmentAttempt": {
+    "selectedDevice": "910B3",
+    "selectedImageCANN": "9.0.0",
+    "actualDeviceAndSDKVerified": false,
+    "startAttempts": 2,
+    "httpStatus": 400,
+    "specificCause": "UNKNOWN",
+    "finalState": "STOPPED",
+    "runningInstancesDisplayed": 0
+  },
+  "environmentProbe": {
+    "bashSyntaxChecked": true,
+    "executedOnDevice": false
+  },
+  "sourceFiles": [
+    {
+      "path": "validation/run.py",
+      "sha256": "33142d7a78c5417f97f115bdb593f8e0bb886d220fababdc49c9d9457b74396e"
+    },
+    {
+      "path": "validation/oracle.py",
+      "sha256": "fe87c3cfa427229c434d403cd75b690dd850a96fa00db05fc35ff3d0e88f7c66"
+    },
+    {
+      "path": "validation/README.md",
+      "sha256": "b06fb132b531fe4fb3c2bc380da1b15a30af8f191ee011dc7e704a938bcda277"
+    },
+    {
+      "path": "validation/device_contract.py",
+      "sha256": "f81fc376725b032053e1fe305fc46388b39b86ed5d5020d335fd3de5879da6dc"
+    },
+    {
+      "path": "validation/test_device_contract.py",
+      "sha256": "5230da2a11455a88b1bfad4483c26b077be230fcd6ab243adec7534fa756b84e"
+    },
+    {
+      "path": "validation/test_runner_device_contract.py",
+      "sha256": "645e0d94ebc5d431f24ce0693b0f4a5ae87edf742afe5590f86330eee5fe3709"
+    },
+    {
+      "path": "validation/device/probe_environment.sh",
+      "sha256": "df17e5a43ccbd6e08d27ccc4abbb6b037fbcfdb6ac0ae98580f9e6192578c9db"
+    }
+  ],
+  "scope": "CPU models and framework negative controls only; no new NPU correctness or performance claim"
+}

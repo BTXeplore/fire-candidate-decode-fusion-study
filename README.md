@@ -26,6 +26,12 @@ Ascend 910B / CANN 9.0.0上的候选框解码与置信度融合算子。这里�
 
 [完整源码差异、逐点结果与未采用理由](docs/09-exp024-square-schedule.md)。
 
+## 2026-10-22：先完善探索与学习框架
+
+新增6个smoke、按实际核数生成的Tile边界、设备内存证据门槛、失败即停，以及NaN/Inf失败报告保存修复；关键理由已写入中文源码注释。原612个CPU数学/地址用例、6个smoke、48个C40边界示例和26项框架自测通过，**均不代表NPU内核通过**。
+
+CANNLab已选择910B3/CANN9.0.0镜像，但两次启动HTTP400，最终关机；未进入终端、没有新设备测量或Judge提交。推荐源码EXP-022保持不变。[本轮为什么这样构造case，以及后续设备接入边界](docs/10-cannlab-case-framework.md)。
+
 ## 从这三处开始
 
 1. [中文入门导读](docs/01-source-walkthrough.md)：输入、Sigmoid、解码、AoS/SoA和队列；以历史015解释基础。

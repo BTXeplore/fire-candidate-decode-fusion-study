@@ -2,6 +2,31 @@
 
 这是独立验证目录，不改动参赛源码、冻结基线或提交工作流。当前主机运行 CPU；**612 个 case 通过只证明本框架的数学与地址模型通过，绝不等于 Ascend C 候选通过**。
 
+## 2026-10-22：先把设备故障与算子失败分开
+
+新增首轮入口，原 `--suite all` 的612个 full用例保持不变：
+
+```powershell
+python -B -m unittest -v test_framework.py test_device_contract.py test_runner_device_contract.py
+python -B run.py --suite smoke --fail-fast
+```
+
+`smoke` 只有6例：B1/N1零输入、B3/N33字段标签、B8/N705普通输入，各含fp16/fp32。它检查最初调用契约，不承诺覆盖每核满704块。源码先沿N分核；应在核对**实际 tiling 核数**后，用 `--suite device-boundary --tile 704 --cores 实际核数` 生成 `C*T-1/C*T/C*T+1` 等邻点，同时遵守N≤32768。`--cores` 只用于生成输入和CPU地址模型，不改变真实kernel分核，也不是硬件探测。默认8不能当作设备事实。
+
+真实设备 adapter 准备好后，首轮建议增加：
+
+```text
+python -B run.py --suite smoke --adapter /actual/adapter.py --revision EXP-022 --fail-fast --require-device-memory-checks --report /actual/smoke-EXP-022.json
+```
+
+`--fail-fast` 保存首个失败后停止；报告将计划数、实际执行数、是否早停分开。Mock历史只有计划用例完整执行、比较全部通过并有合法设备计时才有效。构建/启动异常应单独留档，不能记成算子正确性失败或成功。
+
+`--require-device-memory-checks` 必须配实际adapter；`result['memory_checks']` 约定见 `device_contract.py`：同步后设备输入D2H副本、同一输出分配前后至少32字节哨兵的原始/读回值、逻辑输出NaN预填声明。原始NumPy证据不写入JSON，仅存核对状态。缺证为unknown，损坏为fail；默认兼容旧adapter但绝不把缺证写成内存安全通过。哨兵不能发现越界读取、UB越界或写后恢复，仍需真实设备sanitizer。
+
+`npuExecuted` 是可信adapter按契约返回输出后的**自报执行标志**，不能单独证明设备真实性；报告另列 `adapterInvoked` 和 `executionEvidence=ADAPTER_REPORTED_UNVERIFIED`。HTTP错误字典没有NumPy输出时立即拒绝。框架负控使用临时合成回包，只验证这些拒绝逻辑，不能生成真实NPU成绩。NaN/Inf错误输出的诊断已改为严格JSON可保存，避免“发现漏写却丢失错误报告”。
+
+`device/probe_environment.sh` 是进入Linux实例后才执行的只读探针；本机只做Bash静态语法检查，没有运行NPU。CANNLab页面已选择910B3/CANN9.0.0镜像，但两次启动HTTP400，未进入终端、未编译候选。设备版本、实际核数、ACLNN生成接口和profiling均待现场核对，不能靠镜像标题补全。
+
 ## 使用
 
 依赖 Python 3、NumPy（本机已有）。在本目录执行：
@@ -77,8 +102,8 @@ python -B compare_judge.py baseline-result.json candidate-result.json
 
 ## 来源与已验证范围
 
-- 真实题面：原研究包 `Astra-001/problem-statement.txt` 的 §3.2～3.5、§4.1、§4.2（原文未随此学习仓库发布）；旧数学参考：[../tests/fire_ref.py](../tests/fire_ref.py)。公式、范围、容差及公开性能规模均由原题面核对，本文件保留了验证所需规格。
-- 地址模型依据：当前推荐 EXP-016 的 [../src/op_kernel/fire_candidate_decode_fusion.cpp](../src/op_kernel/fire_candidate_decode_fusion.cpp) 中 `Init`、`Process`、`LoadRaw`、`FlushOut`。EXP-016 在本仓库的 `src/`，不位于 `history/`。模型只复现候选分区和寻址，不解释实际并发性能。
+- 真实题面：`../Astra-001/problem-statement.txt`，§3.2～3.5、§4.1、§4.2；旧数学参考：`../tools/fire_ref.py`。公式、范围、容差及公开性能规模均来自这里。
+- 地址模型依据：`../experiments/EXP-016/iteration-frozen/op_kernel/fire_candidate_decode_fusion.cpp` 的 `Init`、`Process`、`LoadRaw`、`FlushOut`。模型只复现候选分区和寻址，不解释实际并发性能。
 - 历史真实结果：上面的 `measurements.json`；EX016 两次结果是同源码，不把重新测量当新算法。
 - 三类测试的设计动机来自用户提供的 HyosungSink 聊天截图：Coverage 覆盖规格，Correctness 保证正确性精度，Mock 用跨修订耗时曲线验证性能代表性。截图是方法经验，不作为设备接口支持证据。仓库学习由主任务独立核对，不从聊天文字推导硬件结论。
 
