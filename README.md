@@ -18,6 +18,14 @@ Ascend 910B / CANN 9.0.0上的候选框解码与置信度融合算子。这里�
 - [EXP-023完整逐点结果与未采用原因](docs/08-exp023-layout.md)。
 - [023候选源码](history/EXP-023/)：仅布局改动，不替换推荐源码。
 
+## 2026-10-22：独立临时槽调度实验
+
+新候选EXP-024通过12/12，显示均值13.1383µs；原22前/后控为13.2625/12.5650µs。本次只调整四Mul的顺序和临时地址，浮点乘法树、T、UB及队列不变；改善尚不足以升级，平台和推荐源码继续保留EXP-022。
+
+原22的新低观测更新为12.565µs（Judge920494）。这是同源码复测，不是24的代码收益；历史12.94µs等测量仍保留。
+
+[完整源码差异、逐点结果与未采用理由](docs/09-exp024-square-schedule.md)。
+
 ## 从这三处开始
 
 1. [中文入门导读](docs/01-source-walkthrough.md)：输入、Sigmoid、解码、AoS/SoA和队列；以历史015解释基础。
@@ -39,10 +47,10 @@ Ascend 910B / CANN 9.0.0上的候选框解码与置信度融合算子。这里�
 |[history/EXP-019/](history/EXP-019/)|priors/raw搬入重排；无稳健收益暂不采用|
 |[history/EXP-020/](history/EXP-020/)|完整Tile合并score倒数；12/12 Pass，未推荐|
 |[history/EXP-022/](history/EXP-022/)|一次构造索引与首次搬运窗口；当前best_observed|
-|[results/measurements.json](results/measurements.json)|16条精简真实测量，包含三个2026-10-18记录|
+|[results/measurements.json](results/measurements.json)|19条精简真实测量，包含2026-10-18与2026-10-22记录|
 |[validation/](validation/)|Coverage / Correctness / Mock框架，区分CPU与NPU证据|
 |[tests/](tests/)|旧版CPU公式参考与测试脚本，保留学习用途|
-|[SOURCE-MANIFEST.json](SOURCE-MANIFEST.json)|70份冻结源码来源、字节数、SHA256及Git blob SHA|
+|[SOURCE-MANIFEST.json](SOURCE-MANIFEST.json)|77份冻结源码来源、字节数、SHA256及Git blob SHA|
 
 未提交设备的EXP-021生命周期解耦草稿没有评测结论，不计入本轮两个实测版本。
 
